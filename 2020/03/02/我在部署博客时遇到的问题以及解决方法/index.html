@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://yoursite.com/assets/n.png">
 <meta property="og:image" content="http://yoursite.com/assets/t.png">
 <meta property="article:published_time" content="2020-03-02T04:38:48.711Z">
-<meta property="article:modified_time" content="2020-04-03T00:36:48.489Z">
+<meta property="article:modified_time" content="2020-04-10T13:01:38.965Z">
 <meta property="article:author" content="费费">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/assets/d.png">
@@ -335,8 +335,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-04-03T08:36:48+08:00">
-                2020-04-03
+              <time title="更新于" itemprop="dateModified" datetime="2020-04-10T21:01:38+08:00">
+                2020-04-10
               </time>
             
           </span>
@@ -405,34 +405,43 @@
 <p>*<u>（注：要保证本地和Github网站可以通过ssh或者http连接上。前提是如果你采用ssh连接，那么要将本机的秘钥存放在Github上，这样本机才被Github信任。）</u>*</p>
 </li>
 </ul>
-<h3 id="部署博客中的遇到的各种问题"><a href="#部署博客中的遇到的各种问题" class="headerlink" title="部署博客中的遇到的各种问题"></a>部署博客中的遇到的各种问题</h3><h4 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h4><p>首先是添加图片，我上网查了许多资料，具体有两种方法：</p>
-<p>第一种方法如下：</p>
-<ul>
+<h3 id="部署博客中的遇到的各种问题"><a href="#部署博客中的遇到的各种问题" class="headerlink" title="部署博客中的遇到的各种问题"></a>部署博客中的遇到的各种问题</h3><ul>
+<li><h4 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h4></li>
+</ul>
+<p>​       首先是添加图片，我上网查了许多资料，具体有两种方法：</p>
+<p>​        第一种方法如下：</p>
+<ol>
 <li>安装插件 npm install hexo-asset-image –save</li>
-</ul>
-<p>把主页配置文件_config.yml 里的post_asset_folder:这个选项设置为true</p>
+<li>把主页配置文件_config.yml 里的post_asset_folder:这个选项设置为true</li>
+</ol>
 <p><img src="/assets/c.png" alt="c"></p>
-<ul>
-<li>安装完成后，再运行hexo new “filename”来生成md博文时，/source/_posts文件夹内除了filename.md文件还有一个同名的文件夹</li>
-</ul>
-<p>在title.md中引入图片时，先把图片复制到title这个文件夹中，然后只需要在title.md中按照markdown的格式引入图片</p>
+<p>​    3. 安装完成后，再运行hexo new “filename”来生成md博文时，/source/_posts文件夹内除了                filename.md文件还有一个同名的文件夹</p>
+<ol start="4">
+<li><p>在title.md中引入图片时，先把图片复制到title这个文件夹中，然后只需要在title.md中按照    markdown的格式引入图片</p>
 <p>第二种方法如下：</p>
-<ul>
-<li>在Typora文件-&gt;偏好设置，图片插入的地方选择“拷贝到自定义路径”，因为其他几种方式都是拷贝到当前位置的assets或其他子目录下的，这样hexo肯定找不到。</li>
-<li>在source下建一个assets文件夹，并把拷贝路径设置到这里。</li>
-</ul>
+</li>
+<li><p>在Typora文件-&gt;偏好设置，图片插入的地方选择“拷贝到自定义路径”，因为其他几种方式都是拷贝到当前位置的assets或其他子目录下的，这样hexo肯定找不到。</p>
+</li>
+<li><p>在source下建一个assets文件夹，并把拷贝路径设置到这里。</p>
+</li>
+</ol>
 <p><img src="/assets/m.png" alt=""></p>
-<ul>
-<li>这样导致hexo能找到你网站的根目录下的assets，然而你图片在source目录下，这就尴尬了，我也卡在这里蛮久的。</li>
-<li>下面点击格式-&gt;图像&gt;设置图片根目录，把目录设置到source，问题就解决啦，你会看到这样的路径</li>
-</ul>
+<ol start="3">
+<li><p>这样导致hexo能找到你网站的根目录下的assets，然而你图片在source目录下，这就尴尬了，我也卡在这里蛮久的。</p>
+</li>
+<li><p>下面点击格式-&gt;图像&gt;设置图片根目录，把目录设置到source，问题就解决啦，你会看到这样的路径</p>
+</li>
+</ol>
 <p><img src="/assets/n.png" alt=""></p>
 <p>​    <u><em>(注：我觉得第二种方法比较巧妙吧，设置起来也比较方便！推荐使用！)</em></u></p>
-<h4 id="添加评论"><a href="#添加评论" class="headerlink" title="添加评论"></a>添加评论</h4><p>​        添加了图片，也要有评论，可用的评论系统大概有： </p>
-<p>来必力：<a href="https://livere.com/" target="_blank" rel="noopener">https://livere.com</a> （来自韩国，使用邮箱注册。）</p>
-<p>畅言： <a href="http://changyan.kuaizhan.com/" target="_blank" rel="noopener">http://changyan.kuaizhan.com</a> （安装需要备案号。不太好用。）</p>
-<p>Gitment： <a href="https://github.com/imsun/gitment" target="_blank" rel="noopener">https://github.com/imsun/gitment</a> （有点小bug，比如说每次需要手动初始化，登录时会跳到主页。。）</p>
-<p>Valine: <a href="https://github.com/xCss/Valine" target="_blank" rel="noopener">https://github.com/xCss/Valine</a> (简洁，方便，好用的评论系统）</p>
+<ul>
+<li><h4 id="添加评论"><a href="#添加评论" class="headerlink" title="添加评论"></a>添加评论</h4></li>
+</ul>
+<p>​        添加了图片，也要有评论，可用的评论系统大概有： </p>
+<p>​        来必力：<a href="https://livere.com/" target="_blank" rel="noopener">https://livere.com</a> （来自韩国，使用邮箱注册。）</p>
+<p>​        畅言： <a href="http://changyan.kuaizhan.com/" target="_blank" rel="noopener">http://changyan.kuaizhan.com</a> （安装需要备案号。不太好用。）</p>
+<p>​        Gitment： <a href="https://github.com/imsun/gitment" target="_blank" rel="noopener">https://github.com/imsun/gitment</a> （有点小bug，比如说每次需要手动初始化，                登录时会跳到主页。。）</p>
+<p>​        Valine: <a href="https://github.com/xCss/Valine" target="_blank" rel="noopener">https://github.com/xCss/Valine</a> (简洁，方便，好用的评论系统）</p>
 <p><strong>Valine的开启方法：</strong></p>
 <ul>
 <li>我们的评论系统其实是放在Leancloud上的，去注册一个账号</li>
