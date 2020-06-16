@@ -87,16 +87,16 @@
 <meta property="og:url" content="http://yoursite.com/2020/06/16/%E7%BD%91%E9%A1%B5%E4%B8%8A%E6%98%BE%E7%A4%BA%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87%E5%90%8D%E7%A7%B0%E4%B8%94%E8%83%BD%E8%BF%9E%E6%8E%A5%E6%88%90%E5%8A%9F/index.html">
 <meta property="og:site_name" content="可乐">
 <meta property="og:description" content="在准备好了开发环境之后，我们便开始要在网页上显示蓝牙设备名称且能连接成功，所以我们要在相应        的编译环境下进行运行操作，我们用的是Visual Studio Code 一、扫描周边蓝牙设备 在html——head——script中加入discoverDevices来扫描周边的设备  12345678910111213141516171819function discoverDevice">
-<meta property="og:image" content="http://yoursite.com/2020/06/16/assets/36.png">
-<meta property="og:image" content="http://yoursite.com/2020/06/16/assets/37.png">
-<meta property="og:image" content="http://yoursite.com/2020/06/16/assets/38.png">
-<meta property="og:image" content="http://yoursite.com/2020/06/16/assets/40.png">
-<meta property="og:image" content="http://yoursite.com/2020/06/16/assets/39.png">
+<meta property="og:image" content="http://yoursite.com/assets/36.png">
+<meta property="og:image" content="http://yoursite.com/assets/37.png">
+<meta property="og:image" content="http://yoursite.com/assets/38.png">
+<meta property="og:image" content="http://yoursite.com/assets/40.png">
+<meta property="og:image" content="http://yoursite.com/assets/39.png">
 <meta property="article:published_time" content="2020-06-16T11:35:13.656Z">
-<meta property="article:modified_time" content="2020-06-16T12:33:04.707Z">
+<meta property="article:modified_time" content="2020-06-16T12:58:26.822Z">
 <meta property="article:author" content="费费">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/06/16/assets/36.png">
+<meta name="twitter:image" content="http://yoursite.com/assets/36.png">
 
 
 
@@ -334,7 +334,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-06-16T20:33:04+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2020-06-16T20:58:26+08:00">
                 2020-06-16
               </time>
             
@@ -392,11 +392,11 @@
 <ul>
 <li>在body中加入设备名称和一个按键，用来调用discoverDevices函数，如下图：</li>
 </ul>
-<p><img src="../assets/36.png" alt="36"></p>
+<p><img src="/assets/36.png" alt="36"></p>
 <ul>
 <li>保存为.html文件，用chrome浏览器打开，这时我们便可以看到：</li>
 </ul>
-<p><img src="../assets/37.png" alt="37"></p>
+<p><img src="/assets/37.png" alt="37"></p>
 <p><strong>这样就可以扫描到周边的蓝牙设备！</strong></p>
 <h3 id="二、连接蓝牙设备"><a href="#二、连接蓝牙设备" class="headerlink" title="二、连接蓝牙设备"></a>二、连接蓝牙设备</h3><p>在原来的代码中加入connect()函数:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function connect()</span><br><span class="line">  &#123;</span><br><span class="line">     console.log(&quot;connecting&quot;);</span><br><span class="line">     selected_device.gatt.connect()</span><br><span class="line">    .then(</span><br><span class="line">      function (server)&#x2F;&#x2F;表示连接成功</span><br><span class="line">       &#123;</span><br><span class="line">        console.log(&quot;Connected to&quot; + server.device.id);</span><br><span class="line">        console.log(&quot;Connected &quot; + server.connected);</span><br><span class="line">        selected_device.addEventListener(&#39;gattseverdisconnected&#39;,onDisconnected);</span><br><span class="line">        connected_server &#x3D;server;</span><br><span class="line">        discoverSvcsAndChars();</span><br><span class="line">        setConnectedStatus(true);</span><br><span class="line">       &#125;,</span><br><span class="line">       function (error)&#x2F;&#x2F;表示连接失败</span><br><span class="line">       &#123;</span><br><span class="line">         console.log(&quot;ERROR:could not connct-&quot; + error);</span><br><span class="line">         alert(&quot;ERROR:could not connct-&quot; + error);</span><br><span class="line">         setConnectedStatus(false);</span><br><span class="line">       &#125;</span><br><span class="line">     );</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
@@ -404,16 +404,16 @@
 <p>在discoverDevices调用这个函数，定义selected_device用来保存用户选择的蓝牙设备。                        </p>
 <h3 id="三、连接和断开功能的完善"><a href="#三、连接和断开功能的完善" class="headerlink" title="三、连接和断开功能的完善"></a>三、连接和断开功能的完善</h3><p>我们在按钮前加一个表格来显示蓝牙设备是否连接，连接成功显示”true”,失败则显示“false”</p>
 <p>加入以下函数，如下图：</p>
-<p><img src="../assets/38.png" alt="38"></p>
+<p><img src="/assets/38.png" alt="38"></p>
 <p>保存打开浏览：</p>
 <ul>
 <li>若连接成功，则显示：</li>
 </ul>
-<p><img src="../assets/40.png" alt="39"></p>
+<p><img src="/assets/40.png" alt="39"></p>
 <ul>
 <li>断开：</li>
 </ul>
-<p><img src="../assets/39.png" alt="39"></p>
+<p><img src="/assets/39.png" alt="39"></p>
 <p>为能显示如上图的结果，我们可以先把discoverDevices()函数改为discoverOrdisconnectDevices()函    数，代码如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function discoverOrdisconnectDevices()</span><br><span class="line">&#123;</span><br><span class="line">    console.log(&quot;discoverOrdisconnectDevices&quot;);</span><br><span class="line">    if(!connected)</span><br><span class="line">    discoverDevices();</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        selected_device.gatt.disconnect();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
