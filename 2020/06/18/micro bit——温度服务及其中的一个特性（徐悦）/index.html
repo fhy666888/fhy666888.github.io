@@ -92,11 +92,12 @@
 <meta property="og:image" content="http://yoursite.com/assets/52.png">
 <meta property="og:image" content="http://yoursite.com/assets/53.png">
 <meta property="og:image" content="http://yoursite.com/assets/54.png">
+<meta property="og:image" content="http://yoursite.com/assets/62.png">
 <meta property="og:image" content="http://yoursite.com/assets/55.png">
 <meta property="og:image" content="http://yoursite.com/assets/56.png">
 <meta property="og:image" content="http://yoursite.com/assets/57.png">
 <meta property="article:published_time" content="2020-06-18T09:03:50.958Z">
-<meta property="article:modified_time" content="2020-06-18T12:31:53.366Z">
+<meta property="article:modified_time" content="2020-06-18T13:04:26.449Z">
 <meta property="article:author" content="费费">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/assets/50.png">
@@ -337,7 +338,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-06-18T20:31:53+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2020-06-18T21:04:26+08:00">
                 2020-06-18
               </time>
             
@@ -388,7 +389,7 @@
       
         <h3 id="一、查看温度服务和它的特性的uuid号"><a href="#一、查看温度服务和它的特性的uuid号" class="headerlink" title="一、查看温度服务和它的特性的uuid号"></a>一、查看温度服务和它的特性的uuid号</h3><p>要添加温度服务和它的一个特性，首先要看温度服务和它的特性的uuid号<a href="https://lancaster-university.github.io/microbit-docs/resources/bluetooth/bluetooth_profile.html" target="_blank" rel="noopener">点击查看</a> ，温度服务的uuid号如下<br><img src="/assets/50.png" alt="50"></p>
 <h3 id="二、启动chrome蓝牙插件，查看是否有温度服务"><a href="#二、启动chrome蓝牙插件，查看是否有温度服务" class="headerlink" title="二、启动chrome蓝牙插件，查看是否有温度服务"></a>二、启动chrome蓝牙插件，查看是否有温度服务</h3><p>在chrome中输入chrome://bluetooth-internals,点击右上方的Start Scan,找到自己的BBC板，然后连接，连接成功后如下图<br><img src="/assets/51.png" alt="51"><br>仔细对比可以看出，上图的8个服务中并没有温度的uuid号，这时候就要修改micro bit板子端程序</p>
-<h3 id="三、-修改micro-bit板子端程序"><a href="#三、-修改micro-bit板子端程序" class="headerlink" title="三、 修改micro bit板子端程序"></a>三、 修改micro bit板子端程序</h3><p>修改micro bit端程序就是要修改.hex文件，<a href="https://makecode.microbit.org/v0/89975-20684-84568-20127" target="_blank" rel="noopener">点击进入</a>，点击编辑<br><img src="/assets/52.png" alt="52"><br>切换为JavaScript格式，在最后加上bluetooth.startTemperatureService()<br><img src="/assets/53.png" alt="53"><br>这样温度服务就开启了<br><img src="/assets/54.png" alt="54"><br>重新启动chrome蓝牙插件，连接BBC板就会发现多出一个服务<br><img src="/assets/55.png" alt="55"><br>这与温度服务的uuid号是一样的<br><img src="/assets/56.png" alt="56"></p>
+<h3 id="三、-修改micro-bit板子端程序"><a href="#三、-修改micro-bit板子端程序" class="headerlink" title="三、 修改micro bit板子端程序"></a>三、 修改micro bit板子端程序</h3><p>修改micro bit端程序就是要修改.hex文件，<a href="https://makecode.microbit.org/v0/89975-20684-84568-20127" target="_blank" rel="noopener">点击进入</a>，点击编辑<br><img src="/assets/52.png" alt="52"><br>切换为JavaScript格式，在最后加上bluetooth.startTemperatureService()<br><img src="/assets/53.png" alt="53"><br>这样温度服务就开启了<br><img src="/assets/54.png" alt="54"><br>然后点击下载<br><img src="/assets/62.png" alt="62"><br>将下载下来的.hex文件托到BBC的盘符里就可以了<br>最后重新启动chrome蓝牙插件，连接BBC板就会发现多出一个服务<br><img src="/assets/55.png" alt="55"><br>这与温度服务的uuid号是一样的<br><img src="/assets/56.png" alt="56"></p>
 <h3 id="四、-修改电脑端源码"><a href="#四、-修改电脑端源码" class="headerlink" title="四、 修改电脑端源码"></a>四、 修改电脑端源码</h3><p>在script中加入以下语句</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; presence of services and characteristics </span><br><span class="line">var has_temperature_service &#x3D;false;    &#x2F;&#x2F;温度</span><br><span class="line">var has_tem_temperature &#x3D; false;  </span><br><span class="line">&#x2F;&#x2F; service UUIDs </span><br><span class="line">TEMPERATURE_SERVICE &#x3D;&#39;e95d6100-251d-470a-a062-fa1922dfa9a8&#39;; </span><br><span class="line">&#x2F;&#x2F; characteristic UUIDs </span><br><span class="line">TEM_TEMPERATURE &#x3D;&#39;e95d9250-251d-470a-a062-fa1922dfa9a8&#39;;</span><br><span class="line"> &#x2F;&#x2F; cached characteristics var accelerometer_data; </span><br><span class="line"> var tem_temperature;</span><br></pre></td></tr></table></figure>
 <p>这边英文描述的很清楚了我就不多做解释了<br>然后改变discoverSvcsAndChars()函数</p>
