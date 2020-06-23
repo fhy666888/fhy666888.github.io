@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="可乐" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="从我上篇博文中可以得知我们可以在网页上控制任意一行、列灯的亮灭，那同样我们可以具体到任意一盏灯，那我们如何控制BBC板上的任意一盏灯的亮灭呢？  在body里添加25个按钮，表示25盏灯  123456789101112131415161718192021222324252627282930&lt;h3&gt;控制单个小灯亮暗&lt;&#x2F;h3&gt;        &lt;button i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="控制BBC板上的任意一盏灯">
+<meta property="og:url" content="http://yoursite.com/2020/06/23/%E6%8E%A7%E5%88%B6BBC%E6%9D%BF%E4%B8%8A%E7%9A%84%E4%BB%BB%E6%84%8F%E4%B8%80%E7%9B%8F%E7%81%AF/index.html">
+<meta property="og:site_name" content="可乐">
+<meta property="og:description" content="从我上篇博文中可以得知我们可以在网页上控制任意一行、列灯的亮灭，那同样我们可以具体到任意一盏灯，那我们如何控制BBC板上的任意一盏灯的亮灭呢？  在body里添加25个按钮，表示25盏灯  123456789101112131415161718192021222324252627282930&lt;h3&gt;控制单个小灯亮暗&lt;&#x2F;h3&gt;        &lt;button i">
+<meta property="og:image" content="http://yoursite.com/assets/75.png">
+<meta property="article:published_time" content="2020-06-23T06:11:30.860Z">
+<meta property="article:modified_time" content="2020-06-23T06:18:20.811Z">
+<meta property="article:author" content="费费">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/assets/75.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/06/23/控制BBC板上的任意一盏灯/"/>
+
+
+
+
+
+  <title>控制BBC板上的任意一盏灯 | 可乐</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?61d2bb01a344cf2ba6fa296e7c98b9f3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://fhy666888.github.io" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">可乐</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/23/%E6%8E%A7%E5%88%B6BBC%E6%9D%BF%E4%B8%8A%E7%9A%84%E4%BB%BB%E6%84%8F%E4%B8%80%E7%9B%8F%E7%81%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="费费">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="可乐">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">控制BBC板上的任意一盏灯</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-23T14:11:30+08:00">
+                2020-06-23
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-06-23T14:18:20+08:00">
+                2020-06-23
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/06/23/%E6%8E%A7%E5%88%B6BBC%E6%9D%BF%E4%B8%8A%E7%9A%84%E4%BB%BB%E6%84%8F%E4%B8%80%E7%9B%8F%E7%81%AF/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/06/23/%E6%8E%A7%E5%88%B6BBC%E6%9D%BF%E4%B8%8A%E7%9A%84%E4%BB%BB%E6%84%8F%E4%B8%80%E7%9B%8F%E7%81%AF/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>从我上篇博文中可以得知我们可以在网页上控制任意一行、列灯的亮灭，那同样我们可以具体到任意一盏灯，那我们如何控制BBC板上的任意一盏灯的亮灭呢？</p>
+<ul>
+<li>在body里添加25个按钮，表示25盏灯</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;h3&gt;控制单个小灯亮暗&lt;&#x2F;h3&gt; </span><br><span class="line">       &lt;button id&#x3D;&quot;led00&quot; onclick&#x3D;&quot;led00()&quot;&gt;第一行第一列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led01&quot; onclick&#x3D;&quot;led01()&quot;&gt;第一行第二列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led02&quot; onclick&#x3D;&quot;led02()&quot;&gt;第一行第三列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led03&quot; onclick&#x3D;&quot;led03()&quot;&gt;第一行第四列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led04&quot; onclick&#x3D;&quot;led04()&quot;&gt;第一行第五列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;br&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led10&quot; onclick&#x3D;&quot;led10()&quot;&gt;第二行第一列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led11&quot; onclick&#x3D;&quot;led11()&quot;&gt;第二行第二列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led12&quot; onclick&#x3D;&quot;led12()&quot;&gt;第二行第三列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led13&quot; onclick&#x3D;&quot;led13()&quot;&gt;第二行第四列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led14&quot; onclick&#x3D;&quot;led14()&quot;&gt;第二行第五列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;br&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led20&quot; onclick&#x3D;&quot;led20()&quot;&gt;第三行第一列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led21&quot; onclick&#x3D;&quot;led21()&quot;&gt;第三行第二列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led22&quot; onclick&#x3D;&quot;led22()&quot;&gt;第三行第三列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led23&quot; onclick&#x3D;&quot;led23()&quot;&gt;第三行第四列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led24&quot; onclick&#x3D;&quot;led24()&quot;&gt;第三行第五列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;br&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led30&quot; onclick&#x3D;&quot;led30()&quot;&gt;第四行第一列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led31&quot; onclick&#x3D;&quot;led31()&quot;&gt;第四行第二列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led32&quot; onclick&#x3D;&quot;led32()&quot;&gt;第四行第三列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led33&quot; onclick&#x3D;&quot;led33()&quot;&gt;第四行第四列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led34&quot; onclick&#x3D;&quot;led34()&quot;&gt;第四行第五列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;br&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led40&quot; onclick&#x3D;&quot;led40()&quot;&gt;第五行第一列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led41&quot; onclick&#x3D;&quot;led41()&quot;&gt;第五行第二列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led42&quot; onclick&#x3D;&quot;led42()&quot;&gt;第五行第三列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led43&quot; onclick&#x3D;&quot;led43()&quot;&gt;第五行第四列&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;button id&#x3D;&quot;led44&quot; onclick&#x3D;&quot;led44()&quot;&gt;第五行第五列&lt;&#x2F;button&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>每个按钮都会调用一个函数，用来改变小灯的状态。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br></pre></td><td class="code"><pre><span class="line">function led00()              &#x2F;&#x2F;第一行</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[0]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[0]&#x3D;led[0]|(1&lt;&lt;4);</span><br><span class="line">               c[0]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[0]&#x3D;led[0]&amp;(~(1&lt;&lt;4));</span><br><span class="line">               c[0]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led01()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[1]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[0]&#x3D;led[0]|(1&lt;&lt;3);</span><br><span class="line">               c[1]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[0]&#x3D;led[0]&amp;(~(1&lt;&lt;3));</span><br><span class="line">               c[1]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led02()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[2]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[0]&#x3D;led[0]|(1&lt;&lt;2);</span><br><span class="line">               c[2]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[0]&#x3D;led[0]&amp;(~(1&lt;&lt;2));</span><br><span class="line">               c[2]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led03()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[3]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[0]&#x3D;led[0]|(1&lt;&lt;1);</span><br><span class="line">               c[3]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[0]&#x3D;led[0]&amp;(~(1&lt;&lt;1));</span><br><span class="line">               c[3]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led04()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[4]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[0]&#x3D;led[0]|(1&lt;&lt;0);</span><br><span class="line">               c[4]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[0]&#x3D;led[0]&amp;(~(1&lt;&lt;0));</span><br><span class="line">               c[4]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">  </span><br><span class="line">       function led10()                   &#x2F;&#x2F;第二行</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[5]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[1]&#x3D;led[1]|(1&lt;&lt;4);</span><br><span class="line">               c[5]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[1]&#x3D;led[1]&amp;(~(1&lt;&lt;4));</span><br><span class="line">               c[5]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led11()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[6]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[1]&#x3D;led[1]|(1&lt;&lt;3);</span><br><span class="line">               c[6]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[1]&#x3D;led[1]&amp;(~(1&lt;&lt;3));</span><br><span class="line">               c[6]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led12()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[7]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[1]&#x3D;led[1]|(1&lt;&lt;2);</span><br><span class="line">               c[7]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[1]&#x3D;led[1]&amp;(~(1&lt;&lt;2));</span><br><span class="line">               c[7]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led13()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[8]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[1]&#x3D;led[1]|(1&lt;&lt;1);</span><br><span class="line">               c[8]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[1]&#x3D;led[1]&amp;(~(1&lt;&lt;1));</span><br><span class="line">               c[8]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led14()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[9]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[1]&#x3D;led[1]|(1&lt;&lt;0);</span><br><span class="line">               c[9]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[1]&#x3D;led[1]&amp;(~(1&lt;&lt;0));</span><br><span class="line">               c[9]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">  </span><br><span class="line">       function led20()                   &#x2F;&#x2F;第三行</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[10]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[2]&#x3D;led[2]|(1&lt;&lt;4);</span><br><span class="line">               c[10]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[2]&#x3D;led[2]&amp;(~(1&lt;&lt;4));</span><br><span class="line">               c[10]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led21()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[11]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[2]&#x3D;led[2]|(1&lt;&lt;3);</span><br><span class="line">               c[11]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[2]&#x3D;led[2]&amp;(~(1&lt;&lt;3));</span><br><span class="line">               c[11]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led22()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[12]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[2]&#x3D;led[2]|(1&lt;&lt;2);</span><br><span class="line">               c[12]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[2]&#x3D;led[2]&amp;(~(1&lt;&lt;2));</span><br><span class="line">               c[12]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led23()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[13]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[2]&#x3D;led[2]|(1&lt;&lt;1);</span><br><span class="line">               c[13]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[2]&#x3D;led[2]&amp;(~(1&lt;&lt;1));</span><br><span class="line">               c[13]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led24()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[14]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[2]&#x3D;led[2]|(1&lt;&lt;0);</span><br><span class="line">               c[14]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[2]&#x3D;led[2]&amp;(~(1&lt;&lt;0));</span><br><span class="line">               c[14]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">  </span><br><span class="line">       function led30()                   &#x2F;&#x2F;第四行</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[15]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[3]&#x3D;led[3]|(1&lt;&lt;4);</span><br><span class="line">               c[15]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[3]&#x3D;led[3]&amp;(~(1&lt;&lt;4));</span><br><span class="line">               c[15]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led31()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[16]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[3]&#x3D;led[3]|(1&lt;&lt;3);</span><br><span class="line">               c[16]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[3]&#x3D;led[3]&amp;(~(1&lt;&lt;3));</span><br><span class="line">               c[16]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led32()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[17]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[3]&#x3D;led[3]|(1&lt;&lt;2);</span><br><span class="line">               c[17]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[3]&#x3D;led[3]&amp;(~(1&lt;&lt;2));</span><br><span class="line">               c[17]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led33()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[18]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[3]&#x3D;led[3]|(1&lt;&lt;1);</span><br><span class="line">               c[18]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[3]&#x3D;led[3]&amp;(~(1&lt;&lt;1));</span><br><span class="line">               c[18]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led34()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[19]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[3]&#x3D;led[3]|(1&lt;&lt;0);</span><br><span class="line">               c[19]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[3]&#x3D;led[3]&amp;(~(1&lt;&lt;0));</span><br><span class="line">               c[19]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led40()                   &#x2F;&#x2F;第五行</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[20]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[4]&#x3D;led[4]|(1&lt;&lt;4);</span><br><span class="line">               c[20]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[4]&#x3D;led[4]&amp;(~(1&lt;&lt;4));</span><br><span class="line">               c[20]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led41()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[21]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[4]&#x3D;led[4]|(1&lt;&lt;3);</span><br><span class="line">               c[21]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[4]&#x3D;led[4]&amp;(~(1&lt;&lt;3));</span><br><span class="line">               c[21]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led42()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[22]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[4]&#x3D;led[4]|(1&lt;&lt;2);</span><br><span class="line">               c[22]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[4]&#x3D;led[4]&amp;(~(1&lt;&lt;2));</span><br><span class="line">               c[22]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led43()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[23]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[4]&#x3D;led[4]|(1&lt;&lt;1);</span><br><span class="line">               c[23]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[4]&#x3D;led[4]&amp;(~(1&lt;&lt;1));</span><br><span class="line">               c[23]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br><span class="line">       function led44()</span><br><span class="line">       &#123;</span><br><span class="line">           if(c[24]&#x3D;&#x3D;0)</span><br><span class="line">           &#123;</span><br><span class="line">               led[4]&#x3D;led[4]|(1&lt;&lt;0);</span><br><span class="line">               c[24]&#x3D;1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               led[4]&#x3D;led[4]&amp;(~(1&lt;&lt;0));</span><br><span class="line">               c[24]&#x3D;0;</span><br><span class="line">           &#125;</span><br><span class="line">           randLED();</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以上为控制任意一盏灯亮灭的代码，连接BBC板，这时我们可以看到：</p>
+<p><img src="/assets/75.png" alt="75"></p>
+</li>
+<li><p>任意点击一个按钮，我们就能看到相应那盏灯的亮灭，这时效果便完成了！</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>听说打赏我的人，都进了福布斯排行榜</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/收款码.png" alt="费费 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/支付宝.jpg" alt="费费 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/23/%E7%9F%A9%E9%98%B5%E6%8E%A7%E5%88%B6/" rel="next" title="矩阵控制">
+                <i class="fa fa-chevron-left"></i> 矩阵控制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="费费" />
+            
+              <p class="site-author-name" itemprop="name">费费</p>
+              <p class="site-description motion-element" itemprop="description">生命要有裂缝，阳光才能照进来！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://fhy666888.github.io/" target="_blank" title="Github">
+                      
+                        <i class="fa fa-fw fa-github"></i>Github</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="/images/二维码.jpg" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="/images/微博二维码.png" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="/images/微信二维码.png" target="_blank" title="微信">
+                      
+                        <i class="fa fa-fw fa-weixin"></i>微信</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=863481092&auto=1&height=66"></iframe>
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">费费</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+
+<img src="https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png">
+<a href="http://www.beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">苏ICP备20026456号</a>
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i>
+                总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv" style='display:none'><i class="fa fa-user"></i>
+                访问人数<span id="busuanzi_value_site_uv"></span>人
+        </span>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '4Q3rEt032Ite6yMbauelDQ0T-gzGzoHsz',
+        appKey: 'fwqnKjnnRAXfCjFBMNQAJxzQ',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

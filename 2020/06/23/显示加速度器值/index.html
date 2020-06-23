@@ -81,19 +81,18 @@
 
 
 
-<meta name="description" content="BBC板除了温度等特性之外，还有读写特性。我们可以读取BBC开发板的名称或者控制开发板板载LED的亮灭。 读取开发板BBC的名称读取BBC名称，我们需添加一个名为readModelNumber() 的读数据函数，如下： 1234567891011121314151617181920212223242526272829303132333435363738function readModelNumbe">
+<meta name="description" content="Microbit板子上集成了一个3轴传感器，它主要有三个值x,y,z代表三个坐标。我们可以根据加速度传感器判断板子的旋转或者所在状态。 1var    notifications_enabled &#x3D; false;&#x2F;&#x2F;加速度器  123&lt;h2&gt;Notifications - Accelerometer X, Y, Z&lt;&#x2F;h2&gt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网页读取BBC开发板的名称且控制LED的亮灭">
-<meta property="og:url" content="http://yoursite.com/2020/06/19/%E7%BD%91%E9%A1%B5%E8%AF%BB%E5%8F%96BBC%E5%BC%80%E5%8F%91%E6%9D%BF%E7%9A%84%E5%90%8D%E7%A7%B0%E4%B8%94%E6%8E%A7%E5%88%B6LED%E7%9A%84%E4%BA%AE%E7%81%AD/index.html">
+<meta property="og:title" content="显示加速度器值">
+<meta property="og:url" content="http://yoursite.com/2020/06/23/%E6%98%BE%E7%A4%BA%E5%8A%A0%E9%80%9F%E5%BA%A6%E5%99%A8%E5%80%BC/index.html">
 <meta property="og:site_name" content="可乐">
-<meta property="og:description" content="BBC板除了温度等特性之外，还有读写特性。我们可以读取BBC开发板的名称或者控制开发板板载LED的亮灭。 读取开发板BBC的名称读取BBC名称，我们需添加一个名为readModelNumber() 的读数据函数，如下： 1234567891011121314151617181920212223242526272829303132333435363738function readModelNumbe">
-<meta property="og:image" content="http://yoursite.com/assets/68.png">
-<meta property="og:image" content="http://yoursite.com/assets/69.png">
-<meta property="article:published_time" content="2020-06-19T02:54:53.115Z">
-<meta property="article:modified_time" content="2020-06-20T05:30:49.840Z">
+<meta property="og:description" content="Microbit板子上集成了一个3轴传感器，它主要有三个值x,y,z代表三个坐标。我们可以根据加速度传感器判断板子的旋转或者所在状态。 1var    notifications_enabled &#x3D; false;&#x2F;&#x2F;加速度器  123&lt;h2&gt;Notifications - Accelerometer X, Y, Z&lt;&#x2F;h2&gt;">
+<meta property="og:image" content="http://yoursite.com/assets/73.png">
+<meta property="article:published_time" content="2020-06-23T00:07:20.060Z">
+<meta property="article:modified_time" content="2020-06-23T05:33:21.170Z">
 <meta property="article:author" content="费费">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/assets/68.png">
+<meta name="twitter:image" content="http://yoursite.com/assets/73.png">
 
 
 
@@ -123,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/06/19/网页读取BBC开发板的名称且控制LED的亮灭/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/06/23/显示加速度器值/"/>
 
 
 
 
 
-  <title>网页读取BBC开发板的名称且控制LED的亮灭 | 可乐</title>
+  <title>显示加速度器值 | 可乐</title>
   
 
 
@@ -286,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/19/%E7%BD%91%E9%A1%B5%E8%AF%BB%E5%8F%96BBC%E5%BC%80%E5%8F%91%E6%9D%BF%E7%9A%84%E5%90%8D%E7%A7%B0%E4%B8%94%E6%8E%A7%E5%88%B6LED%E7%9A%84%E4%BA%AE%E7%81%AD/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/23/%E6%98%BE%E7%A4%BA%E5%8A%A0%E9%80%9F%E5%BA%A6%E5%99%A8%E5%80%BC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="费费">
@@ -303,7 +302,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">网页读取BBC开发板的名称且控制LED的亮灭</h1>
+          <h1 class="post-title" itemprop="name headline">显示加速度器值</h1>
         
 
         <div class="post-meta">
@@ -315,8 +314,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-19T10:54:53+08:00">
-                2020-06-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-23T08:07:20+08:00">
+                2020-06-23
               </time>
             
 
@@ -331,8 +330,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-06-20T13:30:49+08:00">
-                2020-06-20
+              <time title="更新于" itemprop="dateModified" datetime="2020-06-23T13:33:21+08:00">
+                2020-06-23
               </time>
             
           </span>
@@ -346,8 +345,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/06/19/%E7%BD%91%E9%A1%B5%E8%AF%BB%E5%8F%96BBC%E5%BC%80%E5%8F%91%E6%9D%BF%E7%9A%84%E5%90%8D%E7%A7%B0%E4%B8%94%E6%8E%A7%E5%88%B6LED%E7%9A%84%E4%BA%AE%E7%81%AD/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/06/19/%E7%BD%91%E9%A1%B5%E8%AF%BB%E5%8F%96BBC%E5%BC%80%E5%8F%91%E6%9D%BF%E7%9A%84%E5%90%8D%E7%A7%B0%E4%B8%94%E6%8E%A7%E5%88%B6LED%E7%9A%84%E4%BA%AE%E7%81%AD/" itemprop="commentCount"></span>
+                <a href="/2020/06/23/%E6%98%BE%E7%A4%BA%E5%8A%A0%E9%80%9F%E5%BA%A6%E5%99%A8%E5%80%BC/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/06/23/%E6%98%BE%E7%A4%BA%E5%8A%A0%E9%80%9F%E5%BA%A6%E5%99%A8%E5%80%BC/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -380,23 +379,22 @@
       
 
       
-        <p>BBC板除了温度等特性之外，还有读写特性。我们可以读取BBC开发板的名称或者控制开发板板载LED的亮灭。</p>
-<h3 id="读取开发板BBC的名称"><a href="#读取开发板BBC的名称" class="headerlink" title="读取开发板BBC的名称"></a>读取开发板BBC的名称</h3><p>读取BBC名称，我们需添加一个名为readModelNumber() 的读数据函数，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">function readModelNumber() </span><br><span class="line">       &#123;  </span><br><span class="line">           console.log(&quot;readModelNumber&quot;);   </span><br><span class="line">           &#x2F;&#x2F; state validation   </span><br><span class="line">           if (!connected) </span><br><span class="line">           &#123;     </span><br><span class="line">               alert(&quot;Error: Discover and connect to a device before using this function&quot;);     </span><br><span class="line">               return;   </span><br><span class="line">           &#125;   </span><br><span class="line">           if (!services_discovered) </span><br><span class="line">           &#123;     </span><br><span class="line">               alert(&quot;Error: Service discovery has not yet completed&quot;);     </span><br><span class="line">               return;   </span><br><span class="line">           &#125;    </span><br><span class="line">           if (!has_device_information_service) </span><br><span class="line">           &#123;     </span><br><span class="line">               alert(&quot;Error: The connected device does not contain the device information service&quot;);     </span><br><span class="line">               return;   </span><br><span class="line">           &#125;   </span><br><span class="line">           if (!has_model_name_string) </span><br><span class="line">           &#123;     </span><br><span class="line">               alert(&quot;Error: The connected device does not contain the model name string characteristic&quot;);     </span><br><span class="line">               return;   </span><br><span class="line">           &#125;   </span><br><span class="line">           </span><br><span class="line">           model_number_string.readValue()  </span><br><span class="line">           .then(value &#x3D;&gt; &#123;   </span><br><span class="line">               data &#x3D; new Uint8Array(value.buffer);   </span><br><span class="line">               model_number_string &#x3D; new TextDecoder(&quot;utf-8&quot;).decode(data);  </span><br><span class="line">               console.log(model_number_string);   </span><br><span class="line">               document.getElementById(&quot;model_number&quot;).innerHTML &#x3D; model_number_string;  </span><br><span class="line">               &#125;)  </span><br><span class="line">           .catch(error &#x3D;&gt; &#123;  </span><br><span class="line">               console.log(&#39;Error: &#39; + error);   </span><br><span class="line">               alert(&#39;Error: &#39; + error);   </span><br><span class="line">               return;  </span><br><span class="line">               &#125;); </span><br><span class="line">           &#125;</span><br></pre></td></tr></table></figure>
+        <p>Microbit板子上集成了一个3轴传感器，它主要有三个值x,y,z代表三个坐标。我们可以根据加速度传感器判断板子的旋转或者所在状态。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var    notifications_enabled &#x3D; false;&#x2F;&#x2F;加速度器</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;h3&gt;Read Characteristic - Model number&lt;&#x2F;h3&gt;  </span><br><span class="line">        &lt;button id&#x3D;&quot;btn_read&quot; onclick&#x3D;&quot;readModelNumber()&quot;&gt;Read Model number&lt;&#x2F;button&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2&gt;Notifications - Accelerometer X, Y, Z&lt;&#x2F;h2&gt;</span><br><span class="line">        &lt;button id&#x3D;&quot;btn_notify&quot; onclick&#x3D;&quot;toggleAccelerometerNotifications()&quot;&gt;Toggle Notifications&lt;&#x2F;button&gt;</span><br><span class="line">        &lt;div id&#x3D;&quot;accelerometer_data&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
 
-<p>添加完成，连接BBC成功后，点击按钮：</p>
-<p><img src="/assets/68.png" alt="68"></p>
-<p>这时我们便能看到网页读取了BBC开发板的名称了！</p>
-<h3 id="控制LED的亮灭"><a href="#控制LED的亮灭" class="headerlink" title="控制LED的亮灭"></a>控制LED的亮灭</h3><p>我们可以添加一个名为randomLEDs()的函数来控制LED的亮灭</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">function randomLEDs()   &#x2F;&#x2F;第6课上添加</span><br><span class="line">        &#123;  </span><br><span class="line">            console.log(&quot;randomLEDs&quot;);   </span><br><span class="line">            &#x2F;&#x2F; state validation   </span><br><span class="line">            if (!connected) </span><br><span class="line">            &#123;     </span><br><span class="line">                alert(&quot;Error: Discover and connect to a device before using this function&quot;);     </span><br><span class="line">                return;   </span><br><span class="line">            &#125;   </span><br><span class="line">            if (!services_discovered) </span><br><span class="line">            &#123;     </span><br><span class="line">                alert(&quot;Error: Service discovery has not yet completed&quot;);     </span><br><span class="line">                return;  </span><br><span class="line">            &#125;   </span><br><span class="line">            if (!has_led_service) </span><br><span class="line">            &#123;     </span><br><span class="line">                alert(&quot;Error: The connected device does not contain the LED service&quot;);     </span><br><span class="line">                return;  </span><br><span class="line">            &#125;   </span><br><span class="line">            if (!has_led_matrix_state) </span><br><span class="line">            &#123;      </span><br><span class="line">                alert(&quot;Error: The connected device does not contain the LED matrix state characteristic&quot;);      </span><br><span class="line">                return;   </span><br><span class="line">            &#125;   </span><br><span class="line">            var led_array &#x3D; [0, 0, 0, 0, 0];   </span><br><span class="line"></span><br><span class="line">             &#x2F;&#x2F; Math.random():0~1  Math.floor(x):返回小于等于x的最大整数</span><br><span class="line">            led_array[0] &#x3D; Math.floor(Math.random() * 32);  </span><br><span class="line">            led_array[1] &#x3D; 1;   </span><br><span class="line">            led_array[2] &#x3D; 2;   </span><br><span class="line">            led_array[3] &#x3D; 3;   </span><br><span class="line">            led_array[4] &#x3D; 4;</span><br><span class="line">            var led_matrix_data &#x3D; new Uint8Array(led_array); </span><br><span class="line"></span><br><span class="line">            led_matrix_state.writeValue(led_matrix_data.buffer)</span><br><span class="line">            .then(_ &#x3D;&gt; &#123;   </span><br><span class="line">                console.log(&#39;LED matrix state changed&#39;);  </span><br><span class="line">                &#125;)  </span><br><span class="line">            .catch(error &#x3D;&gt; &#123;   </span><br><span class="line">                console.log(&#39;Error: &#39; + error);   </span><br><span class="line">                alert(&#39;Error: &#39; + error);   return;  </span><br><span class="line">                &#125;); </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">function toggleAccelerometerNotifications() &#x2F;&#x2F;1</span><br><span class="line">            &#123; </span><br><span class="line">                console.log(&quot;toggleAccelerometerNotifications&quot;); </span><br><span class="line">                if (!connected) </span><br><span class="line">                &#123;</span><br><span class="line">                    alert(&quot;Error: Discover and connect to a device before using this function&quot;); </span><br><span class="line">                    return;</span><br><span class="line">                &#125;</span><br><span class="line">                if (!services_discovered)</span><br><span class="line">                &#123;</span><br><span class="line">                    alert(&quot;Error: Service discovery has not yet completed&quot;);</span><br><span class="line">                    return;</span><br><span class="line">                &#125;</span><br><span class="line">                if (!has_accelerometer_service) </span><br><span class="line">                &#123;</span><br><span class="line">                    alert(&quot;Error: The connected device does not contain the accelerometer service&quot;); </span><br><span class="line">                    return;</span><br><span class="line">                &#125;</span><br><span class="line">                if (!has_accelerometer_data) </span><br><span class="line">                &#123;</span><br><span class="line">                    alert(&quot;Error: The connected device does not contain the accelerometer datacharacteristic&quot;);</span><br><span class="line">                    return;</span><br><span class="line">                &#125;</span><br><span class="line">                if (!notifications_enabled) </span><br><span class="line">                &#123; </span><br><span class="line">                    accelerometer_data.startNotifications().then(_ &#x3D;&gt; </span><br><span class="line">                    &#123;</span><br><span class="line">                        console.log(&#39;accelerometer notifications started&#39;); </span><br><span class="line">                        setNotificationsStatus(true);</span><br><span class="line">                        accelerometer_data.addEventListener(&#39;characteristicvaluechanged&#39;,onAccelerometerData);</span><br><span class="line">                    &#125;)</span><br><span class="line">                    .catch(error &#x3D;&gt; </span><br><span class="line">                    &#123;</span><br><span class="line">                       console.log(&#39;Error: &#39; + error); </span><br><span class="line">                       alert(&#39;Error: &#39; + error); </span><br><span class="line">                       return;</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125; </span><br><span class="line">                else </span><br><span class="line">                &#123;</span><br><span class="line">                    accelerometer_data.stopNotifications()</span><br><span class="line">                    .then(_ &#x3D;&gt; &#123;</span><br><span class="line">                    console.log(&#39;accelerometer notifications stopped&#39;); </span><br><span class="line">                    setNotificationsStatus(false);</span><br><span class="line">                    accelerometer_data.removeEventListener(&#39;characteristicvaluechanged&#39;,onAccelerometerData);</span><br><span class="line">                    &#125;)</span><br><span class="line">                    .catch(error &#x3D;&gt; </span><br><span class="line">                    &#123;</span><br><span class="line">                       console.log(&#39;Could not stop accelerometer_datanotifications: &#39; + error);</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;</span><br><span class="line">             &#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;button id&#x3D;&quot;btn_write&quot; onclick&#x3D;&quot;randomLEDs()&quot;&gt;Randomise LEDs&lt;&#x2F;button&gt;</span><br><span class="line">       &lt;h3&gt;Read Characteristic - Model number&lt;&#x2F;h3&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function onAccelerometerData(event)           </span><br><span class="line">          &#123; </span><br><span class="line">              console.log(&quot;onAccelerometerData&quot;); </span><br><span class="line">              buffer &#x3D; event.target.value.buffer; </span><br><span class="line">              dataview &#x3D; new DataView(buffer);</span><br><span class="line">              X &#x3D; dataview.getUint16(0, true); </span><br><span class="line">              Y &#x3D; dataview.getUint16(2, true);</span><br><span class="line">              Z &#x3D; dataview.getUint16(4, true);</span><br><span class="line">              console.log(&quot;X&#x3D;&quot; + X + &quot;, Y&#x3D;&quot; + Y + &quot;, Z+&quot; + Z);</span><br><span class="line">              document.getElementById(&quot;accelerometer_data&quot;).innerHTML &#x3D; &quot;X&#x3D;&quot; + X + &quot;, Y&#x3D;&quot; + Y + &quot;,Z&#x3D;&quot; + Z;</span><br><span class="line">          &#125;</span><br></pre></td></tr></table></figure>
 
-<p>每点击一次Randomise LEDs就实现了控制小灯亮灭的效果，在Console中也能看到调用randomLEDs()的情况：</p>
-<p><img src="/assets/69.png" alt="69"></p>
-<p>这样就实现了网页控制LED的亮灭！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;table border&#x3D;&quot;1&quot;&gt;</span><br><span class="line">               &lt;tr&gt;</span><br><span class="line">                   &lt;td&gt;     &lt;b&gt;Connected&lt;&#x2F;b&gt;   &lt;&#x2F;td&gt;</span><br><span class="line">                   &lt;td&gt;     &lt;b&gt;Service Discovery Completed&lt;&#x2F;b&gt;   &lt;&#x2F;td&gt;</span><br><span class="line">                   &lt;td&gt;     &lt;b&gt;Notifications&lt;&#x2F;b&gt;   &lt;&#x2F;td&gt;   &#x2F;&#x2F;新增</span><br><span class="line">               &lt;&#x2F;tr&gt;</span><br><span class="line">               &lt;tr&gt;</span><br><span class="line">                   &lt;td id&#x3D;&quot;status_connected&quot;&gt; false &lt;&#x2F;td&gt;</span><br><span class="line">                   &lt;td id&#x3D;&quot;status_discovered&quot;&gt; false &lt;&#x2F;td&gt;</span><br><span class="line">                   &lt;td id&#x3D;&quot;status_notifications&quot;&gt;false&lt;&#x2F;td&gt;  &#x2F;&#x2F;新增</span><br><span class="line">               &lt;&#x2F;tr&gt;</span><br><span class="line">           &lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function setNotificationsStatus(status) </span><br><span class="line">           &#123;</span><br><span class="line">              notifications_enabled &#x3D; status;</span><br><span class="line">              document.getElementById(&#39;status_notifications&#39;).innerHTML &#x3D; status;</span><br><span class="line">           &#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上为显示加速度器值的代码，连接BBC板，我们可以看到：</p>
+<p><img src="/assets/73.png" alt=""></p>
+<p>这样我们便可以在网页上显示加速度计得三轴值了！</p>
 
       
     </div>
@@ -450,8 +448,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/18/%E6%98%BE%E7%A4%BABBC%E8%AE%BE%E5%A4%87%E7%9A%84%E6%B8%A9%E5%BA%A6%E6%9C%8D%E5%8A%A1%E5%8F%8A%E5%AE%83%E7%9A%84%E4%B8%80%E4%B8%AA%E7%89%B9%E6%80%A7/" rel="next" title="显示BBC设备的温度服务及它的一个特性">
-                <i class="fa fa-chevron-left"></i> 显示BBC设备的温度服务及它的一个特性
+              <a href="/2020/06/19/%E7%BD%91%E9%A1%B5%E8%AF%BB%E5%8F%96BBC%E5%BC%80%E5%8F%91%E6%9D%BF%E7%9A%84%E5%90%8D%E7%A7%B0%E4%B8%94%E6%8E%A7%E5%88%B6LED%E7%9A%84%E4%BA%AE%E7%81%AD/" rel="next" title="网页读取BBC开发板的名称且控制LED的亮灭">
+                <i class="fa fa-chevron-left"></i> 网页读取BBC开发板的名称且控制LED的亮灭
               </a>
             
           </div>
@@ -460,8 +458,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/06/23/%E6%98%BE%E7%A4%BA%E5%8A%A0%E9%80%9F%E5%BA%A6%E5%99%A8%E5%80%BC/" rel="prev" title="显示加速度器值">
-                显示加速度器值 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/06/23/%E4%B8%80%E8%A1%8CLed/" rel="prev" title="一行Led">
+                一行Led <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -555,17 +553,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -646,22 +635,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#读取开发板BBC的名称"><span class="nav-number">1.</span> <span class="nav-text">读取开发板BBC的名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制LED的亮灭"><span class="nav-number">2.</span> <span class="nav-text">控制LED的亮灭</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
